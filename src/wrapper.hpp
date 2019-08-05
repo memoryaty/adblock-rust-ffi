@@ -47,7 +47,7 @@ class Engine {
       const std::string& tab_host, bool is_third_party,
       const std::string& resource_type, bool* explicit_cancel,
       bool* did_match_exception, bool* did_match_important,
-      std::string *redirect);
+      std::string *redirect, bool skip_unimportant, bool skip_exception);
   bool deserialize(const char* data, size_t data_size);
   void addFilter(const std::string& filter);
   void addTag(const std::string& tag);

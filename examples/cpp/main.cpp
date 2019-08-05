@@ -85,7 +85,7 @@ void Check(bool expected_result,
   std::string redirect;
   bool match = engine.matches(url, host, tab_host, third_party,
       resource_type, &cancel, &did_match_exception,
-      &did_match_important, &redirect);
+      &did_match_important, &redirect, true, true);
   cout << test_description << "... ";
   if (expected_result != match) {
     cout << "Failed!" << endl;

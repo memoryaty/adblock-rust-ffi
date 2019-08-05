@@ -72,7 +72,9 @@ bool engine_match(C_Engine *engine,
                   bool *explicit_cancel,
                   bool *did_match_exception,
                   bool *did_match_important,
-                  char **redirect);
+                  char **redirect,
+                  bool skip_unimportant,
+                  bool skip_exception);
 
 /**
  * Removes a tag to the engine for consideration
