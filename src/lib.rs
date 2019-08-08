@@ -44,8 +44,8 @@ pub unsafe extern "C" fn engine_match(
     did_match_exception: *mut bool,
     did_match_important: *mut bool,
     redirect: *mut *mut c_char,
-    skip_unimportant: bool,
-    skip_exception: bool,
+    previously_matched_rule: bool,
+    previously_matched_exception: bool,
 ) -> bool {
     let url = CStr::from_ptr(url).to_str().unwrap();
     let host = CStr::from_ptr(host).to_str().unwrap();
@@ -59,8 +59,8 @@ pub unsafe extern "C" fn engine_match(
         tab_host,
         resource_type,
         Some(third_party),
-        skip_unimportant,
-        skip_exception,
+        previously_matched_rule,
+        previously_matched_exception,
     );
     *explicit_cancel = blocker_result.explicit_cancel;
     *did_match_exception = blocker_result.exception.is_some();
